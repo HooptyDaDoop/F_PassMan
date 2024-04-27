@@ -58,7 +58,7 @@ class PasswordProvider extends ChangeNotifier {
 
   String alpha = "abcdefghijklmnopqrstuvwxyz";
   String num = "0123456789";
-  String special = "!@#\$%^&*()_-+={[:;\"'|\\<,>.?/]}";
+  String special = "!@#\$%&_+=\\?";
 
   void generatePassword({
     required int length,
