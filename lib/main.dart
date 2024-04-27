@@ -1,23 +1,10 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:passman/pages/_home_page.dart';
 import 'package:passman/providers/password_gen_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:window_manager/window_manager.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  if (!Platform.isAndroid && !Platform.isIOS) {
-    await windowManager.ensureInitialized();
-
-    WindowManager.instance.setMinimumSize(const Size(600, 750));
-    WindowManager.instance.setMaximumSize(const Size(600, 750));
-
-    WindowManager.instance.setResizable(false);
-  }
-
+  // WidgetsFlutterBinding.ensureInitialized();
   runApp(const Application());
 }
 
