@@ -1,16 +1,23 @@
-# passman
+# Passman - v0.1
 
-A new Flutter project.
+## About
 
-## Getting Started
+A really simple parameterized password generator. Creates a random sequence of letters, numbers and special characters and lets you copy them.
 
-This project is a starting point for a Flutter application.
+![Screenshot 2024-04-27 132817](https://github.com/HooptyDaDoop/F_PassMan/assets/165091445/5c70b7cf-fe93-4ada-8268-5fb8a3ac149b)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Parameters
+
+### Split on fourth:
+Instead of picking characters at random, it picks 3 letters, and then on the 4th character either adds a special character (such as "!@#$%") or a number 0-9 (inclusive)
+
+### Toggle uppercase:
+50% chance for every encountered lower case letter (lower case by default) to flip to upper case
+
+### Enclose with character & Surround character:
+if a surround character is given in the text field, and the "enclose with character" option is toggled on, whatever the generated password is, it'll insert the surround character at the beginning and the end of the generated password.
+
+(eg. if surround char is "*" 123_abdc ---becomes---> \*123_abcd\* 
