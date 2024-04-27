@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class PasswordProvider extends ChangeNotifier {
   String password = "";
 
-  // SPLIT BY THREE //
+  // MARK: Use uppercase
 
   bool useUpper = false;
   void setUseUpper(bool value) async {
@@ -16,19 +16,19 @@ class PasswordProvider extends ChangeNotifier {
     return useUpper;
   }
 
-  // SPLIT BY THREE //
+  // MARK: Split on 4th
 
-  bool splitByThree = false;
+  bool splitOnFourth = false;
   void setSplitByThree(bool value) async {
-    splitByThree = value;
+    splitOnFourth = value;
     notifyListeners();
   }
 
   bool getSplitByThree() {
-    return splitByThree;
+    return splitOnFourth;
   }
 
-  // ENCLOSEMENT //
+  // MARK: Enclosing
 
   bool enclose = true;
   void setEnclosement(bool value) async {
@@ -40,7 +40,7 @@ class PasswordProvider extends ChangeNotifier {
     return enclose;
   }
 
-  // SURROUND CHARACTER //
+  // MARK: Surround Character
 
   String surroundCharacter = "";
   void setSurroundCharacter(String value) async {
@@ -52,7 +52,7 @@ class PasswordProvider extends ChangeNotifier {
     return surroundCharacter;
   }
 
-  //---------------------------------
+  // MARK: Main logic
 
   PasswordProvider();
 
@@ -65,7 +65,8 @@ class PasswordProvider extends ChangeNotifier {
   }) async {
     password = "";
 
-    if (splitByThree == true) {
+    // MARK: if split on 4th
+    if (splitOnFourth == true) {
       int temp = length % 4;
       if (temp != 0) {
         length = 4 * Random().nextInt(8);
@@ -89,7 +90,9 @@ class PasswordProvider extends ChangeNotifier {
             break;
         }
       }
-    } else {
+    }
+    // MARK: if not split on 4th
+    else {
       String charsCombined = "$alpha$num$special";
       List<String> allChars = [];
 
@@ -111,6 +114,7 @@ class PasswordProvider extends ChangeNotifier {
       }
     }
 
+    // MARK: Enclosing
     if (enclose == true) {
       password = "$surroundCharacter$password$surroundCharacter";
     }
@@ -118,8 +122,9 @@ class PasswordProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  // MARK: Case switcher (50% chance)
   String switchCaseMaybe(String switcharoo) {
-    bool shouldSwitchCase = Random().nextBool();
+    bool shouldSwitchCase = Random().nextInt(100) % 2 == 0;
 
     if (shouldSwitchCase && useUpper == true) {
       return switcharoo.toUpperCase();

@@ -14,9 +14,11 @@ class HomePage extends StatelessWidget {
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              //MARK: Title
               const Center(
                 child: Text("Password Generator"),
               ),
+              //MARK: Password display
               Center(
                 child: Text(
                   context.watch<PasswordProvider>().password,
@@ -27,11 +29,12 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 12),
+              //MARK: Split on 4th
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Checkbox(
-                      value: context.watch<PasswordProvider>().splitByThree,
+                      value: context.watch<PasswordProvider>().splitOnFourth,
                       onChanged: (_) {
                         context.read<PasswordProvider>().setSplitByThree(
                             !context
@@ -41,6 +44,7 @@ class HomePage extends StatelessWidget {
                   const Text("Split on fourth"),
                 ],
               ),
+              // MARK: Toggle uppercase
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -53,6 +57,7 @@ class HomePage extends StatelessWidget {
                   const Text("Toggle uppercase"),
                 ],
               ),
+              // MARK: Toggle enclose password
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -65,6 +70,7 @@ class HomePage extends StatelessWidget {
                   const Text("Enclose with character"),
                 ],
               ),
+              // MARK: Enclose character text field
               Padding(
                 padding: const EdgeInsets.only(left: 24, right: 24),
                 child: TextField(
@@ -79,6 +85,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 12),
+              // MARK: Generate password button
               Center(
                 child: ElevatedButton(
                   onPressed: () =>
@@ -89,6 +96,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 12),
+              // MARK: Copy password button
               Center(
                 child: ElevatedButton(
                   onPressed: () {
