@@ -5,7 +5,6 @@ class PasswordProvider extends ChangeNotifier {
   String password = "";
 
   // MARK: Use uppercase
-
   bool useUpper = false;
   void setUseUpper(bool value) async {
     useUpper = value;
@@ -17,7 +16,6 @@ class PasswordProvider extends ChangeNotifier {
   }
 
   // MARK: Split on 4th
-
   bool splitOnFourth = false;
   void setSplitByThree(bool value) async {
     splitOnFourth = value;
@@ -29,7 +27,6 @@ class PasswordProvider extends ChangeNotifier {
   }
 
   // MARK: Enclosing
-
   bool enclose = true;
   void setEnclosement(bool value) async {
     enclose = value;
@@ -41,7 +38,6 @@ class PasswordProvider extends ChangeNotifier {
   }
 
   // MARK: Surround Character
-
   String surroundCharacter = "";
   void setSurroundCharacter(String value) async {
     surroundCharacter = value;
@@ -52,20 +48,19 @@ class PasswordProvider extends ChangeNotifier {
     return surroundCharacter;
   }
 
-  // MARK: Main logic
-
   PasswordProvider();
 
   String alpha = "abcdefghijklmnopqrstuvwxyz";
   String num = "0123456789";
   String special = "!@#\$%&_+=\\?";
 
+  // MARK: Main logic
   void generatePassword({
     required int length,
   }) async {
     password = "";
 
-    // MARK: if split on 4th
+    // MARK: If split on 4th
     if (splitOnFourth == true) {
       int temp = length % 4;
       if (temp != 0) {
@@ -91,7 +86,8 @@ class PasswordProvider extends ChangeNotifier {
         }
       }
     }
-    // MARK: if not split on 4th
+
+    // MARK: If not split on 4th
     else {
       String charsCombined = "$alpha$num$special";
       List<String> allChars = [];
@@ -122,7 +118,7 @@ class PasswordProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // MARK: Case switcher (50% chance)
+  // MARK: Case switcharoo (50% chance)
   String switchCaseMaybe(String switcharoo) {
     bool shouldSwitchCase = Random().nextInt(100) % 2 == 0;
 
