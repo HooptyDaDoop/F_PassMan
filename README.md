@@ -6,6 +6,7 @@ A really simple parameterized password generator. Creates a random sequence of l
 
 ![Screenshot 2024-04-27 132817](https://github.com/HooptyDaDoop/F_PassMan/assets/165091445/5c70b7cf-fe93-4ada-8268-5fb8a3ac149b)
 
+https://www.youtube.com/watch?v=vMYmP6-kUWk
 ---
 
 ## Parameters
