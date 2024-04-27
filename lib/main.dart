@@ -4,19 +4,19 @@ import 'package:passman/providers/password_gen_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const Application());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class Application extends StatelessWidget {
+  const Application({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-            create: (context) =>
-                PasswordProvider(splitByThree: true, useUpper: true)),
+          create: (context) => PasswordProvider(),
+        )
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,

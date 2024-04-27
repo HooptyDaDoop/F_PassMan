@@ -3,10 +3,22 @@ import 'package:flutter/material.dart';
 
 class PasswordProvider extends ChangeNotifier {
   String password = "";
-  bool? useUpper;
 
-  bool splitByThree;
+  // SPLIT BY THREE //
 
+  bool useUpper = false;
+  void setUseUpper(bool value) async {
+    useUpper = value;
+    notifyListeners();
+  }
+
+  bool getUseUpper() {
+    return useUpper;
+  }
+
+  // SPLIT BY THREE //
+
+  bool splitByThree = false;
   void setSplitByThree(bool value) async {
     splitByThree = value;
     notifyListeners();
@@ -16,23 +28,43 @@ class PasswordProvider extends ChangeNotifier {
     return splitByThree;
   }
 
-  PasswordProvider({
-    required bool this.useUpper,
-    required this.splitByThree,
-  });
+  // ENCLOSEMENT //
+
+  bool enclose = true;
+  void setEnclosement(bool value) async {
+    enclose = value;
+    notifyListeners();
+  }
+
+  bool getEnclosement() {
+    return enclose;
+  }
+
+  // SURROUND CHARACTER //
+
+  String surroundCharacter = "";
+  void setSurroundCharacter(String value) async {
+    surroundCharacter = value;
+    notifyListeners();
+  }
+
+  String getSurroundCharacter() {
+    return surroundCharacter;
+  }
+
+  //---------------------------------
+
+  PasswordProvider();
 
   String alpha = "abcdefghijklmnopqrstuvwxyz";
   String num = "0123456789";
   String special = "!@#\$%^&*()_-+={[:;\"'|\\<,>.?/]}";
 
   void generatePassword({
-    required String surroundCharacter,
     required int length,
-    required bool enclose,
   }) async {
     password = "";
 
-    //#region Splitting By Three
     if (splitByThree == true) {
       int temp = length % 4;
       if (temp != 0) {
@@ -89,7 +121,7 @@ class PasswordProvider extends ChangeNotifier {
   String switchCaseMaybe(String switcharoo) {
     bool shouldSwitchCase = Random().nextBool();
 
-    if (shouldSwitchCase) {
+    if (shouldSwitchCase && useUpper == true) {
       return switcharoo.toUpperCase();
     } else {
       return switcharoo;
