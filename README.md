@@ -6,7 +6,6 @@ A really simple parameterized password generator. Creates a random sequence of l
 
 ![Screenshot 2024-04-27 132817](https://github.com/HooptyDaDoop/F_PassMan/assets/165091445/5c70b7cf-fe93-4ada-8268-5fb8a3ac149b)
 
-
 ---
 
 ## Parameters
@@ -20,4 +19,4 @@ Instead of picking characters at random, it picks 3 letters, and then on the 4th
 ### Enclose with character & Surround character:
 if a surround character is given in the text field, and the "enclose with character" option is toggled on, whatever the generated password is, it'll insert the surround character at the beginning and the end of the generated password.
 
-(eg. if surround char is "*" 123_abdc ---becomes---> \*123_abcd\* 
+(eg. if surround char is "*" 123_abcd ---becomes---> \*123_abcd\* 
